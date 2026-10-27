@@ -1,0 +1,20 @@
+title = "Research showcase credential checks"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "mimo-token-plan-key"
+description = "MiMo Token Plan API credential, including SDK default arguments"
+regex = '''\btp-[A-Za-z0-9]{32,}\b'''
+keywords = ["tp-"]
+
+[[rules]]
+id = "generic-api-key"
+
+[[rules.allowlists]]
+description = "Reviewed Transformers model class name, not an API credential"
+condition = "AND"
+paths = ['''(?:^|/)src/historical/(?:evaluate_structural_chunks_tablefix_20261014|train_strategy_comparison|train_real_full_routes|train_domain_pretraining_ab_20261014)\.py$''']
+regexTarget = "secret"
+regexes = ['''^Qwen3_5ForConditionalGeneration$''']
