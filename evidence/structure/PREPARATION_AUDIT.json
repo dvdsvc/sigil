@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "articles": 19,
+  "chunks": 410,
+  "identical_payloads_available_for_reuse": 324,
+  "all_article_body_characters_preserved": true,
+  "erlian7_heating_stage_header_kept_with_data_and_sample_description": true,
+  "chunks_sha256": "2362e7664ab8fbcfdf479afeb4b652d0d347ba43b647ccc16fbc544e976f6be1"
+}

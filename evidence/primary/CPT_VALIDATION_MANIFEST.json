@@ -1,0 +1,258 @@
+[
+  {
+    "id": "CPT_115fc39af8a55477_0000000",
+    "article_id": "CPT_115fc39af8a55477",
+    "text_sha256": "115fc39af8a554773ebdfc2cfe7a905b19f3c4ff5c97362ea7ce280f1593dba9",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_115fc39af8a55477_0004094",
+    "article_id": "CPT_115fc39af8a55477",
+    "text_sha256": "115fc39af8a554773ebdfc2cfe7a905b19f3c4ff5c97362ea7ce280f1593dba9",
+    "token_start": 4094,
+    "token_end": 6141,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_115fc39af8a55477_0008188",
+    "article_id": "CPT_115fc39af8a55477",
+    "text_sha256": "115fc39af8a554773ebdfc2cfe7a905b19f3c4ff5c97362ea7ce280f1593dba9",
+    "token_start": 8188,
+    "token_end": 10235,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_115fc39af8a55477_0012282",
+    "article_id": "CPT_115fc39af8a55477",
+    "text_sha256": "115fc39af8a554773ebdfc2cfe7a905b19f3c4ff5c97362ea7ce280f1593dba9",
+    "token_start": 12282,
+    "token_end": 12676,
+    "target_tokens": 394
+  },
+  {
+    "id": "CPT_3cd39507e329c781_0000000",
+    "article_id": "CPT_3cd39507e329c781",
+    "text_sha256": "3cd39507e329c781b07558f58de8b5e65346da3ae30914243d1667445622fb72",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_3cd39507e329c781_0002047",
+    "article_id": "CPT_3cd39507e329c781",
+    "text_sha256": "3cd39507e329c781b07558f58de8b5e65346da3ae30914243d1667445622fb72",
+    "token_start": 2047,
+    "token_end": 4094,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_3cd39507e329c781_0004094",
+    "article_id": "CPT_3cd39507e329c781",
+    "text_sha256": "3cd39507e329c781b07558f58de8b5e65346da3ae30914243d1667445622fb72",
+    "token_start": 4094,
+    "token_end": 6141,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_3cd39507e329c781_0006141",
+    "article_id": "CPT_3cd39507e329c781",
+    "text_sha256": "3cd39507e329c781b07558f58de8b5e65346da3ae30914243d1667445622fb72",
+    "token_start": 6141,
+    "token_end": 7471,
+    "target_tokens": 1330
+  },
+  {
+    "id": "CPT_40744d59ec3ad3f1_0000000",
+    "article_id": "CPT_40744d59ec3ad3f1",
+    "text_sha256": "40744d59ec3ad3f1560cb2d31285d71f88ed3979151a40d88d840102ea64713e",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_40744d59ec3ad3f1_0002047",
+    "article_id": "CPT_40744d59ec3ad3f1",
+    "text_sha256": "40744d59ec3ad3f1560cb2d31285d71f88ed3979151a40d88d840102ea64713e",
+    "token_start": 2047,
+    "token_end": 4094,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_40744d59ec3ad3f1_0004094",
+    "article_id": "CPT_40744d59ec3ad3f1",
+    "text_sha256": "40744d59ec3ad3f1560cb2d31285d71f88ed3979151a40d88d840102ea64713e",
+    "token_start": 4094,
+    "token_end": 6141,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_40744d59ec3ad3f1_0006141",
+    "article_id": "CPT_40744d59ec3ad3f1",
+    "text_sha256": "40744d59ec3ad3f1560cb2d31285d71f88ed3979151a40d88d840102ea64713e",
+    "token_start": 6141,
+    "token_end": 6943,
+    "target_tokens": 802
+  },
+  {
+    "id": "CPT_82fd2d3271a7e8a4_0000000",
+    "article_id": "CPT_82fd2d3271a7e8a4",
+    "text_sha256": "82fd2d3271a7e8a4a0f9a80a96ccaa2e0257d80c8c521b9c96af9019b3e8c891",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_82fd2d3271a7e8a4_0008188",
+    "article_id": "CPT_82fd2d3271a7e8a4",
+    "text_sha256": "82fd2d3271a7e8a4a0f9a80a96ccaa2e0257d80c8c521b9c96af9019b3e8c891",
+    "token_start": 8188,
+    "token_end": 10235,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_82fd2d3271a7e8a4_0018423",
+    "article_id": "CPT_82fd2d3271a7e8a4",
+    "text_sha256": "82fd2d3271a7e8a4a0f9a80a96ccaa2e0257d80c8c521b9c96af9019b3e8c891",
+    "token_start": 18423,
+    "token_end": 20470,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_82fd2d3271a7e8a4_0026611",
+    "article_id": "CPT_82fd2d3271a7e8a4",
+    "text_sha256": "82fd2d3271a7e8a4a0f9a80a96ccaa2e0257d80c8c521b9c96af9019b3e8c891",
+    "token_start": 26611,
+    "token_end": 27067,
+    "target_tokens": 456
+  },
+  {
+    "id": "CPT_c0ea088ef2c35fc0_0000000",
+    "article_id": "CPT_c0ea088ef2c35fc0",
+    "text_sha256": "c0ea088ef2c35fc0fa6e0e8c3e445963c04da30af99355827a4158ed94b2fec3",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c0ea088ef2c35fc0_0002047",
+    "article_id": "CPT_c0ea088ef2c35fc0",
+    "text_sha256": "c0ea088ef2c35fc0fa6e0e8c3e445963c04da30af99355827a4158ed94b2fec3",
+    "token_start": 2047,
+    "token_end": 4094,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c0ea088ef2c35fc0_0006141",
+    "article_id": "CPT_c0ea088ef2c35fc0",
+    "text_sha256": "c0ea088ef2c35fc0fa6e0e8c3e445963c04da30af99355827a4158ed94b2fec3",
+    "token_start": 6141,
+    "token_end": 8188,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c0ea088ef2c35fc0_0008188",
+    "article_id": "CPT_c0ea088ef2c35fc0",
+    "text_sha256": "c0ea088ef2c35fc0fa6e0e8c3e445963c04da30af99355827a4158ed94b2fec3",
+    "token_start": 8188,
+    "token_end": 9378,
+    "target_tokens": 1190
+  },
+  {
+    "id": "CPT_c3c027109591786b_0000000",
+    "article_id": "CPT_c3c027109591786b",
+    "text_sha256": "c3c027109591786bf42b591a12dfd234262913f7b73b02d1e8e1dcc648efc995",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c3c027109591786b_0006141",
+    "article_id": "CPT_c3c027109591786b",
+    "text_sha256": "c3c027109591786bf42b591a12dfd234262913f7b73b02d1e8e1dcc648efc995",
+    "token_start": 6141,
+    "token_end": 8188,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c3c027109591786b_0012282",
+    "article_id": "CPT_c3c027109591786b",
+    "text_sha256": "c3c027109591786bf42b591a12dfd234262913f7b73b02d1e8e1dcc648efc995",
+    "token_start": 12282,
+    "token_end": 14329,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_c3c027109591786b_0018423",
+    "article_id": "CPT_c3c027109591786b",
+    "text_sha256": "c3c027109591786bf42b591a12dfd234262913f7b73b02d1e8e1dcc648efc995",
+    "token_start": 18423,
+    "token_end": 19085,
+    "target_tokens": 662
+  },
+  {
+    "id": "CPT_e8159c584c5c6d69_0000000",
+    "article_id": "CPT_e8159c584c5c6d69",
+    "text_sha256": "e8159c584c5c6d69ac4ead39a31bd5b7c016f5327b7ec04fb86d1374494ec0ce",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_e8159c584c5c6d69_0004094",
+    "article_id": "CPT_e8159c584c5c6d69",
+    "text_sha256": "e8159c584c5c6d69ac4ead39a31bd5b7c016f5327b7ec04fb86d1374494ec0ce",
+    "token_start": 4094,
+    "token_end": 6141,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_e8159c584c5c6d69_0006141",
+    "article_id": "CPT_e8159c584c5c6d69",
+    "text_sha256": "e8159c584c5c6d69ac4ead39a31bd5b7c016f5327b7ec04fb86d1374494ec0ce",
+    "token_start": 6141,
+    "token_end": 8188,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_e8159c584c5c6d69_0010235",
+    "article_id": "CPT_e8159c584c5c6d69",
+    "text_sha256": "e8159c584c5c6d69ac4ead39a31bd5b7c016f5327b7ec04fb86d1374494ec0ce",
+    "token_start": 10235,
+    "token_end": 10816,
+    "target_tokens": 581
+  },
+  {
+    "id": "CPT_ed7032ea461fc684_0000000",
+    "article_id": "CPT_ed7032ea461fc684",
+    "text_sha256": "ed7032ea461fc684eb45e075dd1c7d4f84ee2a0b2152f0d9cbabcb11dc5e12b2",
+    "token_start": 0,
+    "token_end": 2047,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_ed7032ea461fc684_0006141",
+    "article_id": "CPT_ed7032ea461fc684",
+    "text_sha256": "ed7032ea461fc684eb45e075dd1c7d4f84ee2a0b2152f0d9cbabcb11dc5e12b2",
+    "token_start": 6141,
+    "token_end": 8188,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_ed7032ea461fc684_0010235",
+    "article_id": "CPT_ed7032ea461fc684",
+    "text_sha256": "ed7032ea461fc684eb45e075dd1c7d4f84ee2a0b2152f0d9cbabcb11dc5e12b2",
+    "token_start": 10235,
+    "token_end": 12282,
+    "target_tokens": 2047
+  },
+  {
+    "id": "CPT_ed7032ea461fc684_0016376",
+    "article_id": "CPT_ed7032ea461fc684",
+    "text_sha256": "ed7032ea461fc684eb45e075dd1c7d4f84ee2a0b2152f0d9cbabcb11dc5e12b2",
+    "token_start": 16376,
+    "token_end": 16793,
+    "target_tokens": 417
+  }
+]

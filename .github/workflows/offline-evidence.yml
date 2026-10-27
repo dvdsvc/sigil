@@ -1,0 +1,21 @@
+name: Offline research evidence
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -B scripts/check_repository.py
+      - run: python -B scripts/reproduce_results.py
+      - run: python -B scripts/demo.py
+      - run: python -B -m unittest discover -s tests -v

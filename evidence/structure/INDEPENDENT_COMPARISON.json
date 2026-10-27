@@ -1,0 +1,156 @@
+{
+  "complete": true,
+  "independently_recomputed": true,
+  "same_final_adapter_sha256": "08921080c6b0ae125de54e28136ee50448a30869271e17e18901ca58886deb88",
+  "all_original_article_characters_covered": true,
+  "raw_weak_labels": {
+    "full19": {
+      "whole": {
+        "articles": 19,
+        "known_recovered": 94,
+        "known_reference_count": 223,
+        "known_micro_recall": 0.42152466367713004,
+        "mean_per_article_known_recall": 0.5743527995183624,
+        "articles_with_known_references": 11,
+        "predicted_ids": 481,
+        "additional_outputs_unreviewed": 387,
+        "nonliteral_ids": 103
+      },
+      "chunk": {
+        "articles": 19,
+        "known_recovered": 75,
+        "known_reference_count": 223,
+        "known_micro_recall": 0.336322869955157,
+        "mean_per_article_known_recall": 0.3877182420228778,
+        "articles_with_known_references": 11,
+        "predicted_ids": 678,
+        "additional_outputs_unreviewed": 603,
+        "nonliteral_ids": 11
+      }
+    },
+    "historical_fixed17": {
+      "whole": {
+        "articles": 17,
+        "known_recovered": 46,
+        "known_reference_count": 69,
+        "known_micro_recall": 0.6666666666666666,
+        "mean_per_article_known_recall": 0.6666666666666666,
+        "articles_with_known_references": 9,
+        "predicted_ids": 372,
+        "additional_outputs_unreviewed": 326,
+        "nonliteral_ids": 103
+      },
+      "chunk": {
+        "articles": 17,
+        "known_recovered": 35,
+        "known_reference_count": 69,
+        "known_micro_recall": 0.5072463768115942,
+        "mean_per_article_known_recall": 0.4444444444444444,
+        "articles_with_known_references": 9,
+        "predicted_ids": 522,
+        "additional_outputs_unreviewed": 487,
+        "nonliteral_ids": 6
+      }
+    }
+  },
+  "locally_corrected_labels": {
+    "scope": "Only remove thirteen confirmed heating stages1..13 in DOC_19; all other old weak labels unchanged and incomplete. Not a fully cleaned gold dataset.",
+    "full19": {
+      "whole": {
+        "articles": 19,
+        "known_recovered": 94,
+        "known_reference_count": 210,
+        "known_micro_recall": 0.44761904761904764,
+        "mean_per_article_known_recall": 0.5743527995183624,
+        "articles_with_known_references": 11,
+        "predicted_ids": 481,
+        "additional_outputs_unreviewed": 387,
+        "nonliteral_ids": 103
+      },
+      "chunk": {
+        "articles": 19,
+        "known_recovered": 75,
+        "known_reference_count": 210,
+        "known_micro_recall": 0.35714285714285715,
+        "mean_per_article_known_recall": 0.3877182420228778,
+        "articles_with_known_references": 11,
+        "predicted_ids": 678,
+        "additional_outputs_unreviewed": 603,
+        "nonliteral_ids": 11
+      }
+    },
+    "historical_fixed17": {
+      "whole": {
+        "articles": 17,
+        "known_recovered": 46,
+        "known_reference_count": 56,
+        "known_micro_recall": 0.8214285714285714,
+        "mean_per_article_known_recall": 0.6666666666666666,
+        "articles_with_known_references": 9,
+        "predicted_ids": 372,
+        "additional_outputs_unreviewed": 326,
+        "nonliteral_ids": 103
+      },
+      "chunk": {
+        "articles": 17,
+        "known_recovered": 35,
+        "known_reference_count": 56,
+        "known_micro_recall": 0.625,
+        "mean_per_article_known_recall": 0.4444444444444444,
+        "articles_with_known_references": 9,
+        "predicted_ids": 522,
+        "additional_outputs_unreviewed": 487,
+        "nonliteral_ids": 6
+      }
+    },
+    "current_two_condition_common_success": {
+      "whole": {
+        "articles": 19,
+        "known_recovered": 94,
+        "known_reference_count": 210,
+        "known_micro_recall": 0.44761904761904764,
+        "mean_per_article_known_recall": 0.5743527995183624,
+        "articles_with_known_references": 11,
+        "predicted_ids": 481,
+        "additional_outputs_unreviewed": 387,
+        "nonliteral_ids": 103
+      },
+      "chunk": {
+        "articles": 19,
+        "known_recovered": 75,
+        "known_reference_count": 210,
+        "known_micro_recall": 0.35714285714285715,
+        "mean_per_article_known_recall": 0.3877182420228778,
+        "articles_with_known_references": 11,
+        "predicted_ids": 678,
+        "additional_outputs_unreviewed": 603,
+        "nonliteral_ids": 11
+      }
+    }
+  },
+  "historical_excluded_ids": [
+    "FULL_CORRECTION_45a0435a4d6f12af",
+    "FULL_CORRECTION_8f5e54c05deb3610"
+  ],
+  "current_failed_article_ids": [],
+  "chunk_count": 410,
+  "chunk_json_usable": 410,
+  "chunk_output_limit_reached": 0,
+  "reused_identical_inputs": 324,
+  "new_inference_inputs": 86,
+  "new_inference_seconds": 859.561709892936,
+  "cached_original_inference_seconds": 386.4956952833454,
+  "estimated_full_run_inference_seconds": 1246.0574051762815,
+  "whole_inference_seconds": 571.4300069169258,
+  "articles_known_recovery_improved": 1,
+  "articles_known_recovery_declined": 4,
+  "articles_known_recovery_unchanged": 14,
+  "DOC_19": {
+    "Y162_present_in_source": true,
+    "Y162_whole_recovered": false,
+    "Y162_chunk_recovered": false,
+    "heating_steps_output_after_boundary_fix": []
+  },
+  "incomplete_labels_no_true_precision_or_f1": true,
+  "extra_calls_and_total_output_budget_not_controlled": true
+}

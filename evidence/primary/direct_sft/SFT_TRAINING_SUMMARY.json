@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "arm": "direct_sft",
+  "phase": "SFT",
+  "steps": 72,
+  "target_tokens": 22659,
+  "training_seconds": 309.0076739509823,
+  "peak_memory_gib": 13.43487548828125,
+  "trainable_parameters": 3194880
+}

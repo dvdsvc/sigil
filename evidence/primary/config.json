@@ -1,0 +1,80 @@
+{
+  "experiment": "domain_pretraining_ab_20261014_01",
+  "base_weight_sha256": "04b1c301231dd422b8860db31311ab2721511346a32cb1e079c4c4e5f1fe4696",
+  "initialization": "Both arms start from untouched original base and identical freshly initialized LoRA; never inherit B/v4 task adapter.",
+  "system": "Extract all geological study sample, grain, spot or analysis identifiers explicitly written in the input. Copy the original spelling exactly, deduplicate by first entity occurrence, and return only {\"entity_ids\": [...]}. Do not infer parent names, join prefixes or complete missing sequences. Exclude database record indices, references, figure/table numbers, ages, isotope ratios, coordinates, instruments and reference materials. Do not classify sample versus spot. 仅识别文中实际出现的样品、颗粒、测点或分析编号，原样复制并去重；不分类、不拼接、不续号。仅输出entity_ids字段的JSON对象。",
+  "seed": 20261014,
+  "lora": {
+    "r": 8,
+    "alpha": 16,
+    "dropout": 0.05,
+    "target_modules": [
+      "down_proj",
+      "gate_proj",
+      "q_proj",
+      "v_proj",
+      "k_proj",
+      "up_proj",
+      "o_proj"
+    ]
+  },
+  "CPT": {
+    "articles": 128,
+    "epochs": 1,
+    "sequence_length": 2048,
+    "optimizer_updates": 1464,
+    "target_tokens": 2860163,
+    "learning_rate": 2e-05,
+    "warmup": 32,
+    "loss": "Causal next-token loss on every raw-text target token including EOS; first token prefixed by EOS, subsequent chunks carry prior token. No chat template, no ID labels, no cross-document packing, every article token covered exactly once as target.",
+    "validation_articles": 8,
+    "validation_sequences": 32,
+    "validation_target_tokens": 54960,
+    "validation_selection": "Up to4 evenly spaced whole sequences per article, fixed before training."
+  },
+  "SFT": {
+    "articles": 64,
+    "unique_positive_articles": 60,
+    "reviewed_negative_articles": 4,
+    "updates_each_arm": 72,
+    "negative_repetitions": 3,
+    "positive_repetitions": 1,
+    "learning_rate": 5e-05,
+    "warmup": 5,
+    "loss": "Answer-only cross entropy; identical complete-document input order, labels and dropout seed reset each arm.",
+    "input_truncation": false,
+    "max_actual_input_tokens": 59864
+  },
+  "optimizer": "AdamW, weight_decay=0, fresh optimizer for SFT in both arms",
+  "precision": "bf16",
+  "batch": 1,
+  "gradient_accumulation": 1,
+  "evaluation": "Same19 previously inspected complete articles, identical union prompt, greedy/no thinking,4096 output tokens; incomplete labels. No test-dependent checkpoint choice.",
+  "checkpoint_selection": "Fixed final CPT epoch and fixed final72-update SFT; no best-on-test selection.",
+  "data_manifest": {
+    "original_docx_count": 335,
+    "cpt_training_articles": 128,
+    "cpt_validation_articles": 8,
+    "cpt_training_characters": 6711178,
+    "cpt_validation_characters": 329433,
+    "sft_training_articles": 64,
+    "sft_full_negative_articles": 4,
+    "eval_full_articles": 19,
+    "eval_known_reference_total": 210,
+    "CPT_train_and_validation_source_overlap": 0,
+    "CPT_validation_and_SFT_exact_normalized_text_overlap": 0,
+    "CPT_train_and_known_eval_exact_text_overlap": 0,
+    "data_selection": "Fixed SHA256 source order;8 independent language-model validation articles; first128 remaining eligible sources. One CPT epoch, not chosen on extraction test scores.",
+    "projection": "Original DOCX body paragraphs, tables and Office Math text retained; no new OCR, no aggressive cleanup, no synthetic contexts.",
+    "evaluation": "Previously inspected19 complete articles; regression comparison, not a new blind benchmark.",
+    "training_route": "Same untouched original Qwen3.5-0.8B and identical fresh LoRA init. direct_sft versus cpt_then_sft. Identical complete64-article SFT schedule and prompt both arms.",
+    "runner_limits": "CPT sequence2048 tokens; one epoch. Complete SFT articles never truncated.",
+    "files_sha256": {
+      "cpt_train_articles.jsonl": "77308291677799e8a601a0e9034896812df118f12367d54987e35f4338800624",
+      "cpt_validation_articles.jsonl": "78616c5e8e7b049ac3af30f9ef89f05142dea168b51db60af54d44962cf90d22",
+      "sft_full_train.jsonl": "f6426417025d4bbb6aa83acc8836acd526e17e53ff3826a280a4b61aa2709cbf",
+      "eval_full19.jsonl": "de5dae6b5b74ef28887b8f9f7d0323b415752fdb599fb7a516be03c22a35283b"
+    }
+  },
+  "runner_sha256": "c6dac0ad64a4f22bea274b3a82473ed14280f534c355eb5dd691b9d43305c74d"
+}

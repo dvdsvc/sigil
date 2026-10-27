@@ -1,0 +1,11 @@
+{
+  "n": 19,
+  "json_usable": 12,
+  "output_limit_reached": 7,
+  "known_recovered": 23,
+  "known_reference_count": 210,
+  "known_micro_recall": 0.10952380952380952,
+  "mean_per_article_known_recall": 0.32954545454545453,
+  "predicted_ids": 169,
+  "no_true_full_precision_f1_claim": true
+}

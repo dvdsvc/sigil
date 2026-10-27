@@ -1,0 +1,9 @@
+[project]
+name = "scientific-document-small-model-adaptation"
+version = "0.1.0"
+description = "Evidence-grounded LoRA CPT/SFT experiments for scientific identifier recognition"
+requires-python = ">=3.11"
+dependencies = []
+
+[tool.uv]
+package = false

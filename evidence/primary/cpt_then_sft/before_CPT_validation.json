@@ -1,0 +1,8 @@
+{
+  "target_token_weighted_loss": 2.1534167286176698,
+  "target_tokens": 54960,
+  "sequences": 32,
+  "article_count": 8,
+  "same_fixed_sequences_before_after_CPT": true,
+  "not_extraction_accuracy": true
+}

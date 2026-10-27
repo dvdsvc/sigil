@@ -1,0 +1,25 @@
+{
+  "original_docx_count": 335,
+  "cpt_training_articles": 128,
+  "cpt_validation_articles": 8,
+  "cpt_training_characters": 6711178,
+  "cpt_validation_characters": 329433,
+  "sft_training_articles": 64,
+  "sft_full_negative_articles": 4,
+  "eval_full_articles": 19,
+  "eval_known_reference_total": 210,
+  "CPT_train_and_validation_source_overlap": 0,
+  "CPT_validation_and_SFT_exact_normalized_text_overlap": 0,
+  "CPT_train_and_known_eval_exact_text_overlap": 0,
+  "data_selection": "Fixed SHA256 source order;8 independent language-model validation articles; first128 remaining eligible sources. One CPT epoch, not chosen on extraction test scores.",
+  "projection": "Original DOCX body paragraphs, tables and Office Math text retained; no new OCR, no aggressive cleanup, no synthetic contexts.",
+  "evaluation": "Previously inspected19 complete articles; regression comparison, not a new blind benchmark.",
+  "training_route": "Same untouched original Qwen3.5-0.8B and identical fresh LoRA init. direct_sft versus cpt_then_sft. Identical complete64-article SFT schedule and prompt both arms.",
+  "runner_limits": "CPT sequence2048 tokens; one epoch. Complete SFT articles never truncated.",
+  "files_sha256": {
+    "cpt_train_articles.jsonl": "77308291677799e8a601a0e9034896812df118f12367d54987e35f4338800624",
+    "cpt_validation_articles.jsonl": "78616c5e8e7b049ac3af30f9ef89f05142dea168b51db60af54d44962cf90d22",
+    "sft_full_train.jsonl": "f6426417025d4bbb6aa83acc8836acd526e17e53ff3826a280a4b61aa2709cbf",
+    "eval_full19.jsonl": "de5dae6b5b74ef28887b8f9f7d0323b415752fdb599fb7a516be03c22a35283b"
+  }
+}

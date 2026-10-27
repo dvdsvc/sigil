@@ -1,0 +1,303 @@
+[
+  {
+    "path": "src/output_metrics.py",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/train_domain_pretraining_ab_20261014.py",
+    "source_sha256": "c6dac0ad64a4f22bea274b3a82473ed14280f534c355eb5dd691b9d43305c74d",
+    "packaged_sha256": "2d2624ba798bbfd27ef8b58d4eb7a71b9a9453b966cb708c2c7225bbd660dccd",
+    "transformation": "AST-selected parse function; combined with original prefix function; imports only json/re"
+  },
+  {
+    "path": "src/output_metrics.py",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/audit_output_truncation_20261014.py",
+    "source_sha256": "ff1d11b10097d21fa516147820b15c12e5d7a4bc2b802419fb5fe8b305599b0b",
+    "packaged_sha256": "2d2624ba798bbfd27ef8b58d4eb7a71b9a9453b966cb708c2c7225bbd660dccd",
+    "transformation": "AST-selected prefix function; original model-repository publication tail excluded"
+  },
+  {
+    "path": "evidence/primary/article_counts.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/full_document_predictions.jsonl",
+    "source_sha256": "fecbd2f9af5e6408324942c1428e7fcb91f7fe64335db6c7c1cb678e5c48ff7a",
+    "packaged_sha256": "333efb17358062cfcfe4dd95250428ee1554d883abb1a17bbfc6d776a063b725",
+    "transformation": "Derived per-article counts only; original text, labels, names and raw generations excluded; shared output combines two arms"
+  },
+  {
+    "path": "evidence/primary/article_counts.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/full_document_predictions.jsonl",
+    "source_sha256": "a4b4ca5cf27d5283b3fcbe73387f1e6dab6de5d56661c9c05bc0a28df308b933",
+    "packaged_sha256": "333efb17358062cfcfe4dd95250428ee1554d883abb1a17bbfc6d776a063b725",
+    "transformation": "Derived per-article counts only; original text, labels, names and raw generations excluded; shared output combines two arms"
+  },
+  {
+    "path": "evidence/primary/INDEPENDENT_COMPARISON.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/INDEPENDENT_COMPARISON.json",
+    "source_sha256": "b1df9872eb17b40565113cdc00dcd67d1bdbbbdd8e3806188c7a7580c12381f2",
+    "packaged_sha256": "b1df9872eb17b40565113cdc00dcd67d1bdbbbdd8e3806188c7a7580c12381f2",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/DATA_MANIFEST.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/DATA_MANIFEST.json",
+    "source_sha256": "7d86dface006565c6de7a413e2f9448718e126a228156c8201a2833e0ef5c149",
+    "packaged_sha256": "7d86dface006565c6de7a413e2f9448718e126a228156c8201a2833e0ef5c149",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/config.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/config.json",
+    "source_sha256": "3d62cd648c5a2148bcef682d49678b5d4f7083dd5fe12a9cdf71f1b4dde947f6",
+    "packaged_sha256": "3d62cd648c5a2148bcef682d49678b5d4f7083dd5fe12a9cdf71f1b4dde947f6",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/TRAINING_COMPLETION.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/TRAINING_COMPLETION.json",
+    "source_sha256": "ddf162aeb9d6369956de4e3c4a62bb08586aaa97e340f7e61bfef0641b6ce09c",
+    "packaged_sha256": "ddf162aeb9d6369956de4e3c4a62bb08586aaa97e340f7e61bfef0641b6ce09c",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_schedule.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_schedule.jsonl",
+    "source_sha256": "f061a5136ec0d6653288b91ed308fc97a4d8a7dd4dd4770c18081ccd0757a5c6",
+    "packaged_sha256": "cde960f2c51acac832d4e1ea437237195fc315b04f2a59a7c34de3cfb8a733f8",
+    "transformation": "Removed bibliographic paper/group names; retained token intervals, IDs and text hashes"
+  },
+  {
+    "path": "evidence/primary/sft_schedule.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/sft_schedule.jsonl",
+    "source_sha256": "b4f67c4d2df4bc6248a1b4cb97feddd98f68d806aa2d50fbfc7bea91cd2aefe1",
+    "packaged_sha256": "b4f67c4d2df4bc6248a1b4cb97feddd98f68d806aa2d50fbfc7bea91cd2aefe1",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/CPT_VALIDATION_MANIFEST.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/CPT_VALIDATION_MANIFEST.json",
+    "source_sha256": "f11155bda2bb294e0000019485dfec0f6aa036032bc6a7e8c1b0818c9066c295",
+    "packaged_sha256": "15396f68be543d4aebbab05a1d9634f7ff5a49bf7ee302b02805d02b8a41de6a",
+    "transformation": "Removed bibliographic paper/group names; retained token intervals, IDs and text hashes"
+  },
+  {
+    "path": "evidence/primary/direct_sft/INITIALIZATION.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/INITIALIZATION.json",
+    "source_sha256": "4a21871b5398245ea3a431f3f192906458cb768a9380db21e78a9dd3bc21e992",
+    "packaged_sha256": "4a21871b5398245ea3a431f3f192906458cb768a9380db21e78a9dd3bc21e992",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/direct_sft/SFT_TRAINING_SUMMARY.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/SFT_TRAINING_SUMMARY.json",
+    "source_sha256": "a9ad5c27fcdf1c05df818fb37d65e93410a768ed87238b366c83bbddb861e66b",
+    "packaged_sha256": "a9ad5c27fcdf1c05df818fb37d65e93410a768ed87238b366c83bbddb861e66b",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/direct_sft/training_steps.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/training_steps.jsonl",
+    "source_sha256": "7d7c875d3529b1528ff9b7f4126587208f3b400332adb402d96f47078bf03491",
+    "packaged_sha256": "7d7c875d3529b1528ff9b7f4126587208f3b400332adb402d96f47078bf03491",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/direct_sft/FULL_DOCUMENT_METRICS.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/FULL_DOCUMENT_METRICS.json",
+    "source_sha256": "16a73dbeb04782258606ebe7d3e41abb5d24008c593d8d0c82546cd786b5c7d6",
+    "packaged_sha256": "16a73dbeb04782258606ebe7d3e41abb5d24008c593d8d0c82546cd786b5c7d6",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/direct_sft/adapter_config.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/adapter/adapter_config.json",
+    "source_sha256": "05bddfb07fd7a2543ffc3b396d0580c0e9996133132c9f2ca0a7ee28296a41e6",
+    "packaged_sha256": "87bba5a4e59344d3c786d5ce03e6a9180c1a9109af09dab736474acd4dca0143",
+    "transformation": "Private training root replaced; adapter weights/tokenizer omitted"
+  },
+  {
+    "path": "evidence/primary/direct_sft/TRAINING_STATE.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/direct_sft/adapter/TRAINING_STATE.json",
+    "source_sha256": "b92033ad17fae9bcf4b389cc53f247d0f392a4c2ca7ec2dca69044d8455af5d3",
+    "packaged_sha256": "b92033ad17fae9bcf4b389cc53f247d0f392a4c2ca7ec2dca69044d8455af5d3",
+    "transformation": "Private training root replaced; adapter weights/tokenizer omitted"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/INITIALIZATION.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/INITIALIZATION.json",
+    "source_sha256": "4a21871b5398245ea3a431f3f192906458cb768a9380db21e78a9dd3bc21e992",
+    "packaged_sha256": "4a21871b5398245ea3a431f3f192906458cb768a9380db21e78a9dd3bc21e992",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/SFT_TRAINING_SUMMARY.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/SFT_TRAINING_SUMMARY.json",
+    "source_sha256": "3e25b15448a789d6522a5f644f3d27de72dafbb1cd4a2f6f40c368d4baa9ffaa",
+    "packaged_sha256": "3e25b15448a789d6522a5f644f3d27de72dafbb1cd4a2f6f40c368d4baa9ffaa",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/training_steps.jsonl",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/training_steps.jsonl",
+    "source_sha256": "2cc75f5197ea47ecddf3aae8236a9bf01514fc376dc68e2fe90b0ff32bf056c3",
+    "packaged_sha256": "2cc75f5197ea47ecddf3aae8236a9bf01514fc376dc68e2fe90b0ff32bf056c3",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/FULL_DOCUMENT_METRICS.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/FULL_DOCUMENT_METRICS.json",
+    "source_sha256": "65af2b5dfe46cb0269582672e6a322a5af268a3344c64f57fd75991ea08bd3aa",
+    "packaged_sha256": "65af2b5dfe46cb0269582672e6a322a5af268a3344c64f57fd75991ea08bd3aa",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/adapter_config.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/adapter/adapter_config.json",
+    "source_sha256": "05bddfb07fd7a2543ffc3b396d0580c0e9996133132c9f2ca0a7ee28296a41e6",
+    "packaged_sha256": "87bba5a4e59344d3c786d5ce03e6a9180c1a9109af09dab736474acd4dca0143",
+    "transformation": "Private training root replaced; adapter weights/tokenizer omitted"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/TRAINING_STATE.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/adapter/TRAINING_STATE.json",
+    "source_sha256": "798509c295cf49b4f0c088e51f19714d23f3e9e1a6b964f9cfc5815d4d8dd922",
+    "packaged_sha256": "798509c295cf49b4f0c088e51f19714d23f3e9e1a6b964f9cfc5815d4d8dd922",
+    "transformation": "Private training root replaced; adapter weights/tokenizer omitted"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/CPT_TRAINING_SUMMARY.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/CPT_TRAINING_SUMMARY.json",
+    "source_sha256": "b94c839fb4a443099ee77f21bad57025f014ee0d0e5544b7887f11f4e5efd222",
+    "packaged_sha256": "b94c839fb4a443099ee77f21bad57025f014ee0d0e5544b7887f11f4e5efd222",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/before_CPT_validation.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/before_CPT_validation.json",
+    "source_sha256": "cbbe17972c264383a0269ef8b0d313e025eafa59cc10f94dc57ce9ec296e75d2",
+    "packaged_sha256": "cbbe17972c264383a0269ef8b0d313e025eafa59cc10f94dc57ce9ec296e75d2",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/cpt_then_sft/after_CPT_validation.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/server_snapshot/cpt_then_sft/after_CPT_validation.json",
+    "source_sha256": "aba9bf02ac93453418833ec6efb7c2b1aa066468cdd7fb8f5df988513f619a0b",
+    "packaged_sha256": "aba9bf02ac93453418833ec6efb7c2b1aa066468cdd7fb8f5df988513f619a0b",
+    "transformation": "none"
+  },
+  {
+    "path": "evidence/primary/OUTPUT_TRUNCATION_REVIEW.json",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/OUTPUT_TRUNCATION_REVIEW.json",
+    "source_sha256": "c0384a7596992c5da8cbbbdf558476cea2aa22dbc3ed84af655c16813e78c1c0",
+    "packaged_sha256": "bd72a1a77227942efd4a533640065a08a2079bccc70cf91c37de8434c94d5c6b",
+    "transformation": "Paper names replaced with stable per-article aliases; all audit counts retained"
+  },
+  {
+    "path": "src/historical/train_domain_pretraining_ab_20261014.py",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/train_domain_pretraining_ab_20261014.py",
+    "source_sha256": "c6dac0ad64a4f22bea274b3a82473ed14280f534c355eb5dd691b9d43305c74d",
+    "packaged_sha256": "c6dac0ad64a4f22bea274b3a82473ed14280f534c355eb5dd691b9d43305c74d",
+    "transformation": "none"
+  },
+  {
+    "path": "src/historical/project_docx_with_math.py",
+    "source": "archive://wo-b/work/project_docx_with_math.py",
+    "source_sha256": "1d791adfd39fccfb36d9d17a3d662ecc4cd7b9b837086937f25c6b2c6a5f3335",
+    "packaged_sha256": "1d791adfd39fccfb36d9d17a3d662ecc4cd7b9b837086937f25c6b2c6a5f3335",
+    "transformation": "none"
+  },
+  {
+    "path": "src/historical/id_common_v4.py",
+    "source": "archive://wo-b/work/id_common_v4.py",
+    "source_sha256": "aed54f50403358b1da6ec01c58fd11fa4249e85d320131694e39fb548457a94b",
+    "packaged_sha256": "aed54f50403358b1da6ec01c58fd11fa4249e85d320131694e39fb548457a94b",
+    "transformation": "none"
+  },
+  {
+    "path": "src/historical/prepare_domain_pretraining_20261014.py",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/prepare_domain_pretraining_20261014.py",
+    "source_sha256": "fb3a6b2206992a1d06bf0164931b5ab2669ad492a12958abaf3a613de692caf0",
+    "packaged_sha256": "2621e4e086d5e971b321097a7a098bd19f665b65d56efe7300ad23c98c676be5",
+    "transformation": "Only source/root/output locations made explicit CLI arguments; require a new output directory; selection/projection/labels unchanged"
+  },
+  {
+    "path": "src/historical/finalize_domain_pretraining_audit_20261014.py",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/finalize_domain_pretraining_audit_20261014.py",
+    "source_sha256": "828ad5d6ca0adf4f573223ff8f320fdd5de089501284422b2c981407f540e886",
+    "packaged_sha256": "828ad5d6ca0adf4f573223ff8f320fdd5de089501284422b2c981407f540e886",
+    "transformation": "none"
+  },
+  {
+    "path": "src/historical/evaluate_structural_chunks_tablefix_20261014.py",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/evaluate_structural_chunks_tablefix_20261014.py",
+    "source_sha256": "7a2fde9c443dfa9e54e61d26bd02d655ba9c69ddaf9b8b3fc93c6e02e4ea0306",
+    "packaged_sha256": "7a2fde9c443dfa9e54e61d26bd02d655ba9c69ddaf9b8b3fc93c6e02e4ea0306",
+    "transformation": "none"
+  },
+  {
+    "path": "src/historical/train_strategy_comparison.py",
+    "source": "archive://wo-b/outputs/training_strategy_comparison/train_strategy_comparison.py",
+    "source_sha256": "38c0da575eaf8e990f3472f23176471a7c5628d7f09a8ab8488f5573cfd9f580",
+    "packaged_sha256": "38c0da575eaf8e990f3472f23176471a7c5628d7f09a8ab8488f5573cfd9f580",
+    "transformation": "Private parent-adapter store/server root replaced where present; training logic retained"
+  },
+  {
+    "path": "src/historical/train_real_full_routes.py",
+    "source": "archive://wo-b/outputs/real_full_route_comparison/train_real_full_routes.py",
+    "source_sha256": "b5acede77cb7436288ac12e69e68a0089018f1cb347665ed0bdbcf64304cde09",
+    "packaged_sha256": "9769a7aec3f43d5506a2ea2a37887904227365edf7abcaf64f65255d5d399277",
+    "transformation": "Private parent-adapter store/server root replaced where present; training logic retained"
+  },
+  {
+    "path": "requirements/TRAINING_ENVIRONMENT.json",
+    "source": "archive://wo-b/outputs/experiment_archive_20261014/TRAINING_ENVIRONMENT.json",
+    "source_sha256": "7460624a3087649f4922760e44306ab113d492c08e1e5872c1a88c193a42ecd1",
+    "packaged_sha256": "7460624a3087649f4922760e44306ab113d492c08e1e5872c1a88c193a42ecd1",
+    "transformation": "none"
+  },
+  {
+    "path": "reports/OUTPUT_TRUNCATION_REVIEW_ZH.md",
+    "source": "archive://wo-b/outputs/domain_pretraining_ab_20261014/OUTPUT_TRUNCATION_REVIEW_ZH.md",
+    "source_sha256": "2ad7e20626a54f758e17ad0839a40ad9f22fc5b6c62dc8a56270c0945a720424",
+    "packaged_sha256": "c563bf3ab2c5e2bbf5d4cba8d5fac4735d2a1a22966abd014e366558373f02ed",
+    "transformation": "Bibliographic paper aliases relocated; statistical discussion retained"
+  },
+  {
+    "path": "reports/STRUCTURAL_BOUNDARY_REVIEW_ZH.md",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/REPORT_ZH.md",
+    "source_sha256": "f2e46be852663daab7851ae709b49482296fe080458092830bc3d9c930ce7036",
+    "packaged_sha256": "54471017b3970cb7353d2cd811a4530ba03604949c429d376cc43baf0f1480fc",
+    "transformation": "Paper names aliased; private backup references generalized; counts unchanged"
+  },
+  {
+    "path": "reports/HISTORICAL_ROUTE_LINEAGE_ZH.md",
+    "source": "archive://wo-b/outputs/real_full_route_comparison/LINEAGE_AND_PROTOCOL.md",
+    "source_sha256": "49218bfaa683eefb6df716a1e96281ddd35c87e20046c11f210cfa087f055f66",
+    "packaged_sha256": "17e4a3da5fc3a089ed0fc1a00bf2c69c774b602299279e900316c5b25285ce46",
+    "transformation": "Private adapter repository and source roots generalized; lineage hashes/update counts retained"
+  },
+  {
+    "path": "evidence/structure/article_counts.json",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/PER_ARTICLE_COMPARISON.json",
+    "source_sha256": "617ffdf9d898395eb7ad5b4ef188729dc5873271accbd9d347deca9c060a4de5",
+    "packaged_sha256": "fd9dd558c4c8adf2251f934828c94fc96b1dc1274750ef8d40d9933c193893bb",
+    "transformation": "Per-article numeric counts retained; paper titles and actual identifier strings omitted"
+  },
+  {
+    "path": "evidence/structure/INDEPENDENT_COMPARISON.json",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/INDEPENDENT_COMPARISON.json",
+    "source_sha256": "f2409d1383077f371c2c30354da00ee61931585789a63b0a781e7e784dcad274",
+    "packaged_sha256": "13bd2fc77214c0b5e8970b6c4fdcb3fd31b560c89514b576cd15a0f88b19604b",
+    "transformation": "Paper aliases generalized where present"
+  },
+  {
+    "path": "evidence/structure/PREPARATION_AUDIT.json",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/PREPARATION_AUDIT.json",
+    "source_sha256": "aceceb61db39aae6710a8cab415fe986880113b68c5e62e7a221e82b1d5d266d",
+    "packaged_sha256": "aceceb61db39aae6710a8cab415fe986880113b68c5e62e7a221e82b1d5d266d",
+    "transformation": "Private paths generalized where present"
+  },
+  {
+    "path": "evidence/structure/CASE_MANIFEST.json",
+    "source": "archive://wo-b/outputs/structural_chunk_evaluation_20261014/table_boundary_fix/CASE_MANIFEST.json",
+    "source_sha256": "dc59ad26150b1232780c7d6e60fd7368650b54b3ac98bd8368af44db1c2c5609",
+    "packaged_sha256": "dc59ad26150b1232780c7d6e60fd7368650b54b3ac98bd8368af44db1c2c5609",
+    "transformation": "Private paths and article titles generalized where present"
+  }
+]

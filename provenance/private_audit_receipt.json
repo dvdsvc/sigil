@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "source_archive_sha256": "2d41c16f9ac8502bbb725d5077acee548f9cfb3e36d04be068fc9df022548241",
+  "private_archive_payload_files": 542,
+  "manifest_additional_to_payload": true,
+  "private_source_data_sha256_verified": 4,
+  "raw_prediction_records_checked": 38,
+  "full_input_hashes_and_arm_input_token_counts_verified": true,
+  "strict_and_prefix_parsers_recomputed_from_original_outputs": true,
+  "CPT_and_SFT_logs_checked": true,
+  "source_isolation_audit_is_heuristic_not_exhaustive": true,
+  "raw_text_raw_generations_and_weights_in_candidate": false,
+  "new_training_or_inference": false,
+  "passed": true,
+  "secondary_chunk_bodies_reconstructed_against_all19_sources": true,
+  "secondary_chunk_raw_predictions_checked": 410,
+  "secondary_corrected_known_hits_recomputed": 75,
+  "secondary_identical_input_reuse_count_verified": 324,
+  "private_archive_all542_member_hashes_verified": true
+}

@@ -1,0 +1,8 @@
+{
+  "complete": true,
+  "fresh_LoRA_tensor_sha256": "0df1aae1ad3ac4d21989da5170439fa1aa09987879df546f5743ea2859f22455",
+  "identical_SFT_schedule_both_arms": true,
+  "both_SFT_updates": 72,
+  "CPT_updates": 1464,
+  "CPT_target_tokens": 2860163
+}

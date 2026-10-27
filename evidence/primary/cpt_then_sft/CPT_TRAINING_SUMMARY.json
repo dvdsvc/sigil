@@ -1,0 +1,10 @@
+{
+  "complete": true,
+  "arm": "cpt_then_sft",
+  "phase": "CPT",
+  "steps": 1464,
+  "target_tokens": 2860163,
+  "training_seconds": 992.0232839860255,
+  "peak_memory_gib": 7.426079750061035,
+  "trainable_parameters": 3194880
+}
