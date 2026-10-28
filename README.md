@@ -1,74 +1,167 @@
-<img src="assets/mark.svg" width="68" alt="Scientific document adaptation mark">
+# Sigil: Small Language Model Adaptation for Scientific Identifier Extraction
 
-# Scientific Document Small-Model Adaptation
+**Scientific Identifier Extraction · LoRA Fine-Tuning · Domain Adaptation**
 
-**LoRA-based continued pretraining and supervised fine-tuning for identifying geological sample, grain and analysis identifiers in noisy scientific documents.**
+[English](README.md) · [简体中文](README.zh-CN.md)
 
-**English** · [简体中文](README.zh-CN.md)
+This project uses small language models to identify sample, grain, spot and analysis identifiers in geochronology papers. It studies how domain training, task organization and long-document input affect recognition behavior.
 
-Completed research experiments on Qwen3.5-0.8B: source-aware corpus preparation, controlled training, full-document regression evaluation and output-reliability analysis. This local showcase preserves research code and evidence while keeping article text, raw generations and model weights outside the candidate.
+The starting question is specific: **can a small model reliably distinguish identifiers of scientific study objects from text noise with a similar surface form?** The project investigates this through LoRA adaptation, continued pretraining versus supervised fine-tuning, and analysis of generation behavior on complete papers.
 
-[Methods](docs/methods.md) · [Results](docs/results.md) · [Data](docs/data.md) · [Run and reproduce](docs/running.md) · [Provenance](docs/provenance.md) · [Local validation](docs/validation.md)
+## 1. From Entity Recognition to Small Language Models
 
-## Research question
+Early exploration involved triples, BERT-NER, GLiNER, word-frequency analysis and masked-language-model scoring. On real geological literature, these approaches could admit place names, ordinary entities, unusual punctuation and character fragments introduced during document parsing.
 
-Scientific identifiers must be copied from long, noisy papers and tables while distinguishing them from ages, analytical stages, instrument names and references. Can a small language model adapt to this domain, and how should recognition be measured when generated lists repeat or fail to terminate?
+Geological sample and analysis identifiers follow no uniform naming convention. Determining whether a character sequence denotes a sample, an analytical spot, a location or an instrument often requires both prose and table context. Surface patterns and local statistics alone have difficulty resolving these ambiguities.
 
-The primary experiment compares **direct SFT** with **CPT followed by the same SFT**. Both arms start from the untouched original base and identical fresh LoRA tensors. LoRA is the parameter-efficient adaptation technique; CPT and SFT use different training objectives on those parameters. They are not three competing model architectures.
+Subsequent work moved to small generative language models, using contextual modeling and domain LoRA training for identifier recognition. The task is to copy identifiers literally present in the document, excluding unrelated numbers such as ages, isotope ratios and citation indices. It also prohibits inferring an unwritten parent sample name or extending a numbering sequence.
 
-## Research work
+The early traditional-method comparisons come from exploratory records. The archived training and quantitative evidence available for direct verification primarily concerns the subsequent small-model experiments.
 
-| Component | Implementation and evidence |
+## 2. Model and Training Design
+
+The project uses **Qwen3.5-0.8B** with LoRA on a single **RTX 3090**, with **3,194,880 trainable parameters** in the recorded runs. Transformers and PEFT provide model loading and parameter adaptation; the training implementation controls loss scope, input order, optimization and checkpointing.
+
+Training uses real geological papers containing both prose and tables. DOCX preprocessing preserves paragraphs, table rows and Office Math text in document order. Mathematics is retained as a text projection; image OCR and equation-layout reconstruction are outside this preprocessing step.
+
+Two output contracts have been explored. The following examples illustrate their formats.
+
+**Identifier recognition without types:**
+
+```json
+{
+  "entity_ids": ["MZ04A", "MZ04A-01", "MZ04A-02"]
+}
+```
+
+**Identifier recognition with types:**
+
+```json
+{
+  "sample_ids": ["MZ04A"],
+  "spot_ids": ["MZ04A-01", "MZ04A-02"]
+}
+```
+
+These formats correspond to different task organizations. Earlier routes study recognition and type assignment together. The later CPT comparison uses `entity_ids` throughout, focusing on identifier recognition and output completeness.
+
+| Primary CPT/SFT setting | Recorded configuration |
 |---|---|
-| Scientific-document preparation | Preserve body order, table rows and Office Math text; screen source aliases and exact/normalized document hashes; isolate known evaluation sources. [Projection](src/historical/project_docx_with_math.py), [preparation](src/historical/prepare_domain_pretraining_20261014.py) |
-| Controlled parameter-efficient training | Fresh initialization hashes; seven projection targets; answer-only SFT loss; bf16 and gradient checkpointing; identical SFT schedules and optimizer reset. [Actual trainer](src/historical/train_domain_pretraining_ab_20261014.py), [configuration](evidence/primary/config.json) |
-| CPT versus direct SFT | 128 CPT articles, 1,464 updates and 2,860,163 target tokens; both SFT arms use 64 complete articles, 72 updates and 22,659 answer tokens. [Training evidence](evidence/primary) |
-| Recognition and delivery evaluation | Separate strict JSON delivery, conservative prefix recognition, repeated items, nonliteral tails and article-level aggregation. [Original pure parsers](src/output_metrics.py), [truncation audit](reports/OUTPUT_TRUNCATION_REVIEW_ZH.md) |
-| Structure-aware inference analysis | A separate fixed-adapter study preserves every article character while keeping table headers, inserted sample descriptions and data together. [Corrected evaluator](src/historical/evaluate_structural_chunks_tablefix_20261014.py), [report](reports/STRUCTURAL_BOUNDARY_REVIEW_ZH.md) |
+| LoRA | Rank 8, alpha 16, dropout 0.05; seven attention/feed-forward projection targets |
+| Compute and memory | bf16, batch size 1, gradient checkpointing and SDPA |
+| CPT objective | Autoregressive language modeling on raw domain text |
+| SFT objective | Cross entropy on the identifier JSON answer and EOS only |
+| Complete-document input | No article truncation during SFT; maximum recorded training input of 59,864 tokens |
 
-The implementation uses existing Transformers and PEFT capabilities. The research contribution lies in problem definition, data construction, controlled adaptation, full-document evaluation and error analysis. Upstream model architectures, LoRA and standard CPT/SFT objectives retain their original attribution.
+[Training implementation](src/historical/train_domain_pretraining_ab_20261014.py) · [Document preprocessing](src/historical/project_docx_with_math.py) · [Configuration](evidence/primary/config.json) · [Methods](docs/methods.md)
 
-## Observed results
+## 3. Research Explorations
 
-The primary runs trained **3,194,880 LoRA parameters** on an RTX 3090. Fixed language-model validation loss decreased from **2.1534 to 1.9583 (−9.06%)** after CPT. Both SFT runs used complete inputs, with the longest training input reaching 59,864 tokens.
+### 3.1 Recognize First, Then Classify—or Train Typed Extraction Directly?
 
-| Fixed 19-article regression panel | Direct SFT | CPT → same SFT |
+Early experiments explored two training routes:
+
+- **Route A:** learn to extract the union of all identifiers, then train typed extraction.
+- **Route B:** train directly to identify and distinguish samples and spots from the source text.
+
+The initial intuition was that learning shared identifier patterns before type distinctions might simplify training. Here, the second stage still generates typed lists from the original text; it is not a separate classifier consuming first-stage predictions.
+
+The historical results show tradeoffs that depend on the evaluation set. For example, on development fragments after full-document continuation training, direct typed training reduced false positives with slightly lower recall. On held-out tables, that route had both higher precision and higher recall. These results inform analysis of task organization without establishing a universally superior route.
+
+Some historical studies inherit different parent adapters and use different cumulative update counts. They compare training routes and are interpreted separately from the common-origin CPT experiment below. The resulting research question is: **how do training objectives and task order affect domain adaptation?**
+
+[Strategy comparison](src/historical/train_strategy_comparison.py) · [Full-document training routes](src/historical/train_real_full_routes.py) · [Initialization and route lineage](reports/HISTORICAL_ROUTE_LINEAGE_ZH.md)
+
+### 3.2 Does Domain Continued Pretraining Improve Extraction?
+
+A separate experiment compares **direct SFT** with **CPT → SFT**. Both arms start from the same original base and identical fresh LoRA initialization. SFT data, input order, labels, random seeds and settings are aligned, with a fresh optimizer at the start of SFT in both arms.
+
+CPT uses 128 domain papers and approximately 2.86 million target tokens over 1,464 updates. Both arms then use 64 complete real articles for the same 72-update SFT schedule. The CPT arm receives extra training before the shared SFT stage, so total compute is not matched.
+
+The fixed language-model validation set contains 8 articles, 32 sequences and 54,960 target tokens. CPT reduces validation loss from **2.1534 to 1.9583, a relative decrease of approximately 9.06%**, but the improvement does not consistently translate into identifier extraction gains.
+
+| Comparison on 19 complete papers | Direct SFT | CPT → SFT |
 |---|---:|---:|
 | Complete JSON usable | 12/19 | 12/19 |
-| Known identifiers recovered using complete JSON only | 23/210 | 18/210 |
-| Known identifiers recovered including complete strings before truncation | 52/210 | 28/210 |
-| Article-equal known recall under prefix recovery | 47.61% | 51.14% |
+| Known identifiers recovered when consuming complete JSON only | 23/210 | 18/210 |
+| Known identifiers recovered including complete pre-truncation strings | 52/210 | 28/210 |
+| Article-equal known recall with prefix recovery | 47.61% | 51.14% |
 
-The micro and article-equal directions differ. The experiment shows domain language-loss improvement without a consistent extraction gain across these measures. Fourteen truncated outputs were audited as eight repetition loops and six nonliteral extension tails. An invalid complete JSON document can still contain recognized identifiers; these are measured separately.
+Article-equal recall averages over the **11 papers with nonempty known-identifier inventories**. The remaining eight empty inventories are unknown and still contribute to delivery statistics. Total identifier recovery and article-equal recall move in different directions; CPT does not improve, or worsen, every recognition metric consistently.
 
-The labels are incomplete and the 19 articles were repeatedly inspected development/regression documents. Counts measure recovery of the **known inventory**, not true full-document precision/F1 or a blind-test benchmark. CPT uses extra training compute. The structure study uses a different already-trained adapter and has its own corrected result (94/210 whole-document versus 75/210 segmented); it is not an additional CPT arm. [Result scopes and corrections](docs/results.md).
+The result suggests that **better domain language-model loss does not necessarily yield a consistent improvement in downstream extraction**. Language prediction, identifier recognition and structured output require separate measurement.
 
-## Offline quick start
+[Configuration and training records](evidence/primary/config.json) · [Frozen comparison](evidence/primary/INDEPENDENT_COMPARISON.json) · [Detailed results](docs/results.md)
 
-Python 3.11+ and the standard library suffice; no article corpus, weights, model credentials or GPU is needed:
+### 3.3 Recognition and Output Delivery
 
-```sh
+Generative identifier extraction requires finding correct names and terminating the list normally. Across the 38 full-document generations in the two arms, 14 reach the output limit. Review identifies **eight clear repetition loops** and **six nonliteral identifier-sequence extensions**.
+
+Some outputs contain correct identifiers before entering a loop. Treating every incomplete JSON response as zero recognition would conflate recognition errors with delivery failure.
+
+The project therefore retains two measurement rules. Strict parsing accepts complete `entity_ids` JSON. Conservative prefix recovery reads complete strings sequentially from the beginning of the actual output list, stops at the first truncated or malformed item, and deduplicates within each article. It neither completes a partial identifier nor uses labels to select predictions.
+
+Together, these rules distinguish recognized identifiers, complete-output usability and abnormal generation. Correct identifiers in a prefix do not establish completion of the extraction task.
+
+[Output parsing](src/output_metrics.py) · [Truncation analysis](reports/OUTPUT_TRUNCATION_REVIEW_ZH.md) · [Audit counts](evidence/primary/OUTPUT_TRUNCATION_REVIEW.json)
+
+### 3.4 Complete Documents and Structural Segmentation
+
+A separate experiment holds an already-trained model fixed and divides the same 19 papers into 410 chunks. It aims to keep table headers, sample descriptions and data rows together, then merges and deduplicates predictions within each article.
+
+The early analysis had table-boundary and labeling issues: some headers were separated from data, and 13 heating-stage values were mislabeled as spot identifiers. The corrected study adjusts the boundaries and removes these 13 confirmed label errors:
+
+| Metric | Whole document | Structural chunks |
+|---|---:|---:|
+| Known identifiers recovered | 94/210 | 75/210 |
+| Article-equal known recall | 57.44% | 38.77% |
+| Predicted identifiers, summed after within-article deduplication | 481 | 678 |
+
+Article-equal recall again uses the 11 nonempty known inventories. All 410 chunk outputs are parseable without truncation, and **the whole-document condition also has no output truncation**. Segmentation does not improve known-identifier recall and increases additional candidates that have not been individually reviewed.
+
+For this model and document panel, **shorter input does not automatically improve recognition**. Context organization, task understanding and generation behavior warrant further study; the experiment does not isolate which is the principal cause.
+
+This study uses a different fixed adapter from the CPT comparison. Of the 410 inputs, 324 identical inputs reuse historical outputs and 86 changed inputs were newly inferred in the original experiment. Call counts, total output budget and repeated context also differ from the whole-document condition.
+
+[Structural segmentation](src/historical/evaluate_structural_chunks_tablefix_20261014.py) · [Corrected report](reports/STRUCTURAL_BOUNDARY_REVIEW_ZH.md) · [Article-level counts](evidence/structure/article_counts.json)
+
+## 4. Current Findings and Next Steps
+
+The experiments expand the initial question of whether a small model can extract identifiers into four research questions:
+
+1. How do domain knowledge and context help distinguish real identifiers from text noise?
+2. How does the order of recognition and type-assignment training affect false positives, omissions and type errors?
+3. Why can continued pretraining improve language prediction without consistently improving downstream extraction?
+4. How should entity omission, additional generation and output-delivery failure be measured separately?
+
+The full-document evaluation uses incomplete known-identifier inventories, and the 19 papers were repeatedly examined during development. The results are development/regression comparisons. Additional predictions have not all been adjudicated, so they do not support full precision or F1 under an independent blind-test protocol.
+
+Next steps are to build more complete annotations using geochronology databases and manual review, then evaluate how training strategies, document organization and output constraints affect recognition and delivery completeness.
+
+## 5. Code and Reproduction
+
+The repository retains training implementations, experiment configurations, output evaluation rules and statistical records with source text removed.
+
+| Entry | Contents |
+|---|---|
+| [CPT/SFT comparison](src/historical/train_domain_pretraining_ab_20261014.py) | Common base, fresh LoRA initialization and aligned SFT stage |
+| [Extraction strategies](src/historical/train_strategy_comparison.py) | Union-then-typed versus direct typed training |
+| [Full-document routes](src/historical/train_real_full_routes.py) | Complete-paper training from historical parent adapters |
+| [Document projection](src/historical/project_docx_with_math.py) | Prose, tables and Office Math text |
+| [Structural segmentation](src/historical/evaluate_structural_chunks_tablefix_20261014.py) | Corrected table boundaries and chunk aggregation |
+| [Result reproduction](scripts/reproduce_results.py) | Training schedules, logs, validation loss and per-article aggregate checks |
+
+Python 3.11+ and the standard library are sufficient for offline verification. No GPU, original papers or model weights are required:
+
+```bash
 uv run --offline --no-project python -B scripts/reproduce_results.py
 uv run --offline --no-project python -B scripts/demo.py
 uv run --offline --no-project python -B -m unittest discover -s tests -v
 uv run --offline --no-project python -B scripts/check_repository.py
 ```
 
-Use `--python /path/to/python3.12` before `python -B` if an explicit interpreter is needed. Direct `python -B ...` commands also work. The reproduction command checks training logs/schedules and recomputes released aggregates from article-level counts. The demo uses hand-written fictional examples to exercise the real parsing rules; it is not model inference or model-performance evidence.
+The corresponding `python -B ...` commands can also be run directly. Reproduction recomputes statistics from released article-level counts and checks the training records. Re-parsing original generations requires the private archive. The parser demo uses handwritten fictional input and does not run a model.
 
-## Repository map
+Full training requires the original corpus, a matching base model and a GPU environment. Model weights, paper full texts and raw generations are excluded from the presentation version. See [Running](docs/running.md), [Data](docs/data.md) and [Provenance](docs/provenance.md) for historical script dependencies, workspace restoration and upstream attribution.
 
-| Directory | Contents |
-|---|---|
-| `src/historical/` | Preserved training, document projection and evaluation implementations; limited path relocation is recorded |
-| `src/output_metrics.py` | Existing strict/prefix parsers extracted without the original publication automation |
-| `evidence/primary/` | Config, initialization hashes, training logs/schedules, validation losses and no-text per-article counts |
-| `evidence/structure/` | Separate table-boundary-corrected inference comparison |
-| `reports/` | Selected research reports with source aliases and private locations generalized |
-| `scripts/`, `tests/` | Safe offline verification, parser examples/tests and optional owner-restored workspace setup |
-| `requirements/` | Actual historical training environment and selected recorded dependency pins |
-| `provenance/` | Source/package hashes, transformations and private-audit receipt |
-
-Fresh training requires separately restored private corpora and original model files. [Runtime instructions](docs/running.md) explain the historical directory dependency and provide an explicit new-workspace staging helper. Offline verification does not claim a new GPU training run. The original private archive remains unchanged. [License and attribution](THIRD_PARTY_NOTICES.md).
-
-Configuration: [Environment variables](docs/security.md).
+[Detailed results](docs/results.md) · [Training environment](requirements/TRAINING_ENVIRONMENT.json) · [Third-party notices](THIRD_PARTY_NOTICES.md)
