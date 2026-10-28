@@ -71,4 +71,4 @@ Use `--python /path/to/python3.12` before `python -B` if an explicit interpreter
 
 Fresh training requires separately restored private corpora and original model files. [Runtime instructions](docs/running.md) explain the historical directory dependency and provide an explicit new-workspace staging helper. Offline verification does not claim a new GPU training run. The original private archive remains unchanged. [License and attribution](THIRD_PARTY_NOTICES.md).
 
-Credential configuration and release checks: [Security guide](docs/security.md).
+Configuration: [Environment variables](docs/security.md).

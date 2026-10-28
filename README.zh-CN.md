@@ -70,4 +70,4 @@ uv run --offline --no-project python -B scripts/check_repository.py
 
 重新训练需要作者另行恢复私有语料与原始底座。[运行说明](docs/running.md)解释历史目录依赖，并提供显式创建新工作区的准备脚本。本次验证覆盖归档结果与离线入口，没有重新进行 GPU 训练。原始归档保留不动；许可和上游归属见[第三方说明](THIRD_PARTY_NOTICES.md)。
 
-凭据配置与发布前检查：[安全说明](docs/security.md)。
+运行配置：[环境变量](docs/security.md)。
