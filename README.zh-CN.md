@@ -1,6 +1,6 @@
-# Sigil：面向科学文献编号识别的小语言模型适配
+# Sigil
 
-**Scientific Identifier Extraction · LoRA Fine-Tuning · Domain Adaptation**
+**探索面向科学文献编号识别的小语言模型领域适配。**
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 

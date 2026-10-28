@@ -1,6 +1,6 @@
-# Sigil: Small Language Model Adaptation for Scientific Identifier Extraction
+# Sigil
 
-**Scientific Identifier Extraction · LoRA Fine-Tuning · Domain Adaptation**
+**Adapting Small Language Models for Scientific Identifier Extraction.**
 
 [English](README.md) · [简体中文](README.zh-CN.md)
 
