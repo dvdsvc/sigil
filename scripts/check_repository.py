@@ -45,7 +45,7 @@ def main():
         rel = str(path.relative_to(ROOT))
         if path.is_symlink() or any(part in {"__pycache__", "node_modules", "models", "runs", ".venv", ".venv-gpu"} for part in path.relative_to(ROOT).parts):
             errors.append("Runtime/model/dependency payload: " + rel)
-        if path.suffix.lower() in {".safetensors", ".pt", ".pth", ".bin", ".docx", ".pdf", ".zip", ".gz", ".tar", ".log"} or path.name.startswith(".env"):
+        if path.suffix.lower() in {".safetensors", ".pt", ".pth", ".bin", ".docx", ".pdf", ".zip", ".gz", ".tar", ".log"} or (path.name.startswith(".env") and path.name != ".env.example"):
             errors.append("Unapproved private/generated payload: " + rel)
         data = path.read_bytes()
         if b"\x00" in data:
