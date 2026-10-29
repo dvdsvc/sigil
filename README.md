@@ -2,11 +2,11 @@
 
 **Adapting Small Language Models for Scientific Identifier Extraction.**
 
-[English](README.md) · [简体中文](README.zh-CN.md)
+**English** · [简体中文](README.zh-CN.md)
 
-This project uses small language models to identify sample, grain, spot and analysis identifiers in geochronology papers. It studies how domain training, task organization and long-document input affect recognition behavior.
+**Research question:** How do domain adaptation and task design affect small-model identifier extraction and structured output? **Method:** Qwen3.5-0.8B LoRA, matched SFT versus CPT→SFT experiments, and full-document and segmented evaluation. **Key findings:** CPT lowers language-model validation loss by 9.06%, while strict-JSON known-identifier recovery on 19 papers is 23/210 for direct SFT versus 18/210 after CPT. Language modeling and extraction respond differently.
 
-The starting question is specific: **can a small model reliably distinguish identifiers of scientific study objects from text noise with a similar surface form?** The project investigates this through LoRA adaptation, continued pretraining versus supervised fine-tuning, and analysis of generation behavior on complete papers.
+[Training methods](docs/methods.md) · [Experimental results](docs/results.md)
 
 ## 1. From Entity Recognition to Small Language Models
 
